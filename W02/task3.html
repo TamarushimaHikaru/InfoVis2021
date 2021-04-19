@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+    <title>Task03</title>
+
+</head>
+
+<body>
+    <script src="vec3.js"></script>
+    <p>
+        v1
+        <input type="number" id="number1x" />
+        <input type="number" id="number1y" />
+        <input type="number" id="number1z" />
+    </p>
+    <p>
+        v2
+        <input type="number" id="number2x" />
+        <input type="number" id="number2y" />
+        <input type="number" id="number2z" />
+    </p>
+    <p>
+        v3
+        <input type="number" id="number3x" />
+        <input type="number" id="number3y" />
+        <input type="number" id="number3z" />
+    </p>
+    <input type="button" onclick="solve()" value="solve" />
+
+    <p id="AreaOfTriangle"></p>
+    <script>
+
+        function solve() {
+            var x = document.getElementById("number1x");
+            var y = document.getElementById("number1y");
+            var z = document.getElementById("number1z");
+            var v1 = new Vec3(x, y, z);
+            var x = document.getElementById("number2x");
+            var y = document.getElementById("number2y");
+            var z = document.getElementById("number2z");
+            var v2 = new Vec3(x, y, z);
+            var x = document.getElementById("number3x");
+            var y = document.getElementById("number3y");
+            var z = document.getElementById("number3z");
+            var v3 = new Vec3(x, y, z);
+
+            var xa = v2.x.value - v1.x.value;
+            var ya = v2.y.value - v1.y.value;
+            var za = v2.z.value - v1.z.value;
+            var xb = v3.x.value - v1.x.value;
+            var yb = v3.y.value - v1.y.value;
+            var zb = v3.z.value - v1.z.value;
+
+            var xg = ya * zb - za * yb;
+            var yg = za * xb - xa * zb;
+            var zg = xa * yb - ya * xb;
+
+            var s = Math.sqrt(Math.pow(xg, 2) + Math.pow(yg, 2) + Math.pow(zg, 2)) / 2;
+            var Stext = "AreaOfTriangle = " + s;
+            document.getElementById("AreaOfTriangle").innerHTML = Stext;
+
+
+        }
+
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,41 @@
+<html>
+
+      <head>
+
+    <title>Task02</title>
+
+      </head>
+      
+      <body>
+          <script src="vec3.js"></script>
+          <input type="number" id="number1x" />
+          <input type="number" id="number1y" />
+          <input type="number" id="number1z" />
+          <input type="button" onclick="solve()" value="solve" />
+
+          <p id="min"></p>
+          <p id="mid"></p>
+          <p id="max"></p>
+          <script>
+
+              function solve() {
+                  var x = document.getElementById("number1x");
+                  var y = document.getElementById("number1y");
+                  var z = document.getElementById("number1z");
+                  var v = new Vec3(x, y, z);
+                  var mintext = "min =" + v.min().value + "<br>";
+                  document.getElementById("min").innerHTML = mintext;
+                  var midtext = "mid =" + v.mid().value + "<br>";
+                  document.getElementById("mid").innerHTML = midtext;
+                  var maxtext = "max =" + v.max().value + "<br>";
+                  document.getElementById("max").innerHTML = maxtext;
+
+
+              }
+
+          </script>
+
+      </body>
+      
+
+</html>
