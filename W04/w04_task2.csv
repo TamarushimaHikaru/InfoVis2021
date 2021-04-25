@@ -1,5 +1,5 @@
-width,color
-120,"red"
-30,"blue"
-70,"green"
-90,"red"
+label,width,color
+"Label1",120,"red"
+"Label2",30,"blue"
+"Label3",70,"green"
+"Label4,"90,"red"
