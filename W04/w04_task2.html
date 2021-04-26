@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+    <title>W04: Task02</title>
+
+</head>
+<body>
+
+
+   
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+
+        var svg = d3.select("body").append("svg");
+        d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W04/w04_task2.csv", draw);
+        
+
+        var padding = 10;
+        var height = 20;
+
+        function draw(data) {
+            
+            svg.selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x", padding)
+                .attr("y", function (d, i) { return padding + i * (height + padding); })
+                .attr("width", function (d) { return d.width; })
+                .attr("height", height)
+                .attr("fill", function (d) { return d.color; })
+            svg.selectAll("text")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("x", function (d) { return padding + d.width; })
+                .attr("y", function (d, i) { return padding + height / 2 + i * (height + padding); })
+                .text(function (d) { return d.label; });
+
+        }
+
+            //function label(data) {
+            //    var text = svg.selectAll("text")
+            //        .data(data)
+            //        .enter()
+            //        .append("text")
+            //   var textLabel = text    .attr("x", function (d) { return padding + d.width; })
+            //        .attr("y", function (d, j) { return padding + j * (height + padding); })
+            //        .text("wwwwwwwwwwwwww")
+            //        .attr("font-family", "sans-serif")
+            //       .attr("font-size", "20px")
+            //        .attr("fill", "blue");
+            //}
+
+    </script>
+
+</body>
+
+</html>
