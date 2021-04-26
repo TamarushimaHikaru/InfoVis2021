@@ -34,8 +34,8 @@
                 .data(data)
                 .enter()
                 .append("text")
-                .attr("x", function (d) { return padding + d.width; })
-                .attr("y", function (d, i) { return padding + height / 2 + i * (height + padding); })
+                .attr("x", function (d) { return padding + parseInt(d.width); })
+                .attr("y", function (d, i) { return padding + height + i * (height + padding); })
                 .text(function (d) { return d.label; });
 
         }
