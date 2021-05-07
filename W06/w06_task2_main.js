@@ -18,7 +18,7 @@ class ScatterPlot {
             .attr('height', self.config.height);
 
         self.chart = self.svg.append('g')
-            .attr('transform', `translate(${self.config.margin.left}, ${self.config.margin.top})`);;
+            .attr('transform', `translate(${self.config.margin.left}, ${self.config.margin.top})`);
 
         self.inner_width = self.config.width - self.config.margin.left - self.config.margin.right;
 
@@ -77,7 +77,7 @@ d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W04/data.csv")
             parent: '#drawing_region',
             width: 256,
             height: 256,
-            margin: { top: 20, right: 20, bottom: 30, left: 30 }
+            margin: { top: 40, right: 10, bottom: 60, left: 60 }
         };
         const scatter_plot = new ScatterPlot(config, data);
         scatter_plot.update();
