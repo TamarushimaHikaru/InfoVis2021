@@ -1,9 +1,7 @@
 d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W04/w04_task2.csv")
     .then(data => {
-        data.forEach(d => { d.label = +d.label; d.value = + d.value; });
-        data.forEach(function (value) {
-            console.log(value);
-        });
+        data.forEach(d => { d.label = +d.label;});
+        data.forEach(d => { d.value = +d.value;});
         var config = {
             parent: '#drawing_region',
             width: 256,

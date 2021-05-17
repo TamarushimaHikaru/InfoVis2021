@@ -1,6 +1,9 @@
-d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W04/w04_task2.csv")
+d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W08/w08_task2.csv")
     .then(data => {
         data.forEach(d => { d.x = +d.x; d.y = + d.y; });
+        data.forEach(function (value) {
+            console.log(value);
+        });
 
         var config = {
             parent: '#drawing_region',
@@ -88,12 +91,12 @@ class LineChart {
             .call(self.yaxis);
 
         const line = d3.line()
-            .x(self.data, d => d.x)
-            .y(self.data, d => d.y);
+            .x(d => d.x)
+            .y(d => d.y);
 
         self.chart.selectAll("path").data(self.data).enter()
             .append("path")
-            .attr('d', line(data))
+            .attr('d', line(self.data))
             .attr('stroke', 'black')
             .attr('fill', 'none');
 
