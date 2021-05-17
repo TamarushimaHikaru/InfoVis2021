@@ -1,7 +1,9 @@
 d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W04/w04_task2.csv")
     .then(data => {
-        data.forEach(d => { d.label = +d.lavel; d.value = + d.value; });
-
+        data.forEach(d => { d.label = +d.label; d.value = + d.value; });
+        data.forEach(function (value) {
+            console.log(value);
+        });
         var config = {
             parent: '#drawing_region',
             width: 256,
@@ -15,6 +17,7 @@ d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W04/w04_task2.csv")
     .catch(error => {
         console.log(error);
     });
+
 
 class BarChart {
     constructor(config, data) {
@@ -66,7 +69,6 @@ class BarChart {
     update() {
         let self = this;
 
-        const space = 10;
         self.xscale.domain([0, d3.max(self.data, d => d.value)]);
 
         self.yscale.domain(self.data.map(d => d.label));
