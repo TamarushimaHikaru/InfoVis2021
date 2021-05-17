@@ -9,14 +9,14 @@ d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/W04/w04_task2.csv")
             margin: { top: 10, right: 10, bottom: 20, left: 60 }
         };
 
-        const scatter_plot = new ScatterPlot(config, data);
+        const scatter_plot = new BarChart(config, data);
         scatter_plot.update();
     })
     .catch(error => {
         console.log(error);
     });
 
-class ScatterPlot {
+class BarChart {
     constructor(config, data) {
         this.config = {
             parent: config.parent,
@@ -57,10 +57,9 @@ class ScatterPlot {
         self.xaxis_group = self.chart.append('g')
             .attr('transform', `translate(0, ${self.inner_height})`);
 
-        self.yaxis_group = self.chart.append('g'); self.xaxis_group = self.chart.append('g')
-            .attr('transform', `translate(0, ${self.inner_height})`);
+        self.yaxis_group = self.chart.append('g'); 
 
-        self.yaxis_group = self.chart.append('g');
+        
 
     }
 
@@ -78,6 +77,12 @@ class ScatterPlot {
     render() {
         let self = this;
 
+        self.xaxis_group
+            .call(self.xaxis);
+
+        self.yaxis_group
+            .call(self.yaxis);
+
         self.chart.selectAll("rect").data(self.data).enter()
             .append("rect")
             .attr("x", 0)
@@ -85,10 +90,6 @@ class ScatterPlot {
             .attr("width", d => self.xscale(d.value))
             .attr("height", self.yscale.bandwidth());
 
-        self.xaxis_group
-            .call(self.xaxis);
-
-        self.yaxis_group
-            .call(self.yaxis);
+        
     }
 }
