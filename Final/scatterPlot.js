@@ -70,8 +70,8 @@ class ScatterPlot {
         let self = this;
 
         
-        self.xvalue = d => d.p;
-        self.yvalue = d => d.k;
+        self.xvalue = d => d.k;
+        self.yvalue = d => d.p;
 
         const xmin = d3.min(self.data, self.xvalue);
         const xmax = d3.max(self.data, self.xvalue);
@@ -101,7 +101,7 @@ class ScatterPlot {
             .on('mouseover', (e, d) => {
                 d3.select('#tooltip')
                     .style('opacity', 1)
-                    .html(`<div class="tooltip-label">${d.label}</div>(${d.p}, ${d.k})`);
+                    .html(`<div class="tooltip-label">${d.label}</div>(${d.k}, ${d.p})`);
             })
             .on('mousemove', (e) => {
                 const padding = 10;

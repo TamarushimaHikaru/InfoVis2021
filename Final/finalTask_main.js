@@ -15,21 +15,22 @@ d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/Final/data.csv")
             height: 256,
             margin: { top: 10, right: 10, bottom: 50, left: 70 },
             title: 'Corona Data',
-            xlabel: 'Population',
-            ylabel: 'Number of infected people'
+            xlabel: 'Number of infected people',
+            ylabel: 'Population'
         };
 
         var config2 = {
             parent: '#drawing_region',
-            width: 256,
+            width: 518,
             height: 256,
-            margin: { top: 10, right: 10, bottom: 50, left: 70 },
+            margin: { top: 10, right: 10, bottom: 50, left: 326 },
             title: 'Corona Data',
-            xlabel: 'Population',
-            ylabel: 'Number of infected people'
+            xlabel: 'Number of infected people',
+            ylabel: 'Vaccination rate'
         };
 
-        
+        const scatter_plot = new ScatterPlot(config, data);
+        scatter_plot.update();
 
         const scatter_plot2 = new ScatterPlot2(config2, data);
         scatter_plot2.update();
