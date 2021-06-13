@@ -56,7 +56,7 @@ class ScatterPlot {
             .attr('text-anchor', 'middle')
             .text(self.config.xlabel);
 
-        const ylabel_space = 65;
+        const ylabel_space = 85;
         self.svg.append('text')
             .style('font-size', '12px')
             .attr('transform', `rotate(-90)`)
