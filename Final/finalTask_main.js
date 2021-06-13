@@ -7,7 +7,9 @@ d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/Final/data.csv")
             d.r2 = +d.r2;
         });
 
-        
+
+        const color_scale = d3.scaleOrdinal(d3.schemeCategory10);
+        color_scale.domain(['tohoku', 'hokuriku', 'koshinetu', 'kanto', 'tokai', 'kansai', 'chugoku', 'shikoku', 'kyusyu']);
 
         var config = {
             parent: '#drawing_region',
@@ -16,7 +18,8 @@ d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/Final/data.csv")
             margin: { top: 10, right: 10, bottom: 50, left: 70 },
             title: 'Corona Data',
             xlabel: 'Number of infected people',
-            ylabel: 'Population'
+            ylabel: 'Population',
+            cscale: color_scale
         };
 
         var config2 = {
@@ -26,7 +29,8 @@ d3.csv("https://TamarushimaHikaru.github.io/InfoVis2021/Final/data.csv")
             margin: { top: 10, right: 10, bottom: 50, left: 326 },
             title: 'Corona Data',
             xlabel: 'Number of infected people',
-            ylabel: 'Vaccination rate'
+            ylabel: 'Vaccination rate',
+            cscale: color_scale
         };
 
         const scatter_plot = new ScatterPlot(config, data);
